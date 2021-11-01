@@ -1,0 +1,14 @@
+%bg-reset {
+    background-color: transparent;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+%evt-none {
+    pointer-events: none;
+}
+
+%evt-all {
+    pointer-events: all;
+}

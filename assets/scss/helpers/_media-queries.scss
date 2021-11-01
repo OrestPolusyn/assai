@@ -1,0 +1,75 @@
+$mqs: (
+  //name         //breakpoint
+  'mobile-sm':        320,
+  'mobile-small-lg':  361,
+  'small-md':         450,
+  'mobile-lg':        766,
+  'tablet-md':        810,
+  'tablet':           960,
+  'desktop-sm':       1100,
+  'desktop-med':      1200,
+  'desktop-med-lg':   1250,
+  'desktop-lg':       1440,
+  'h-mobile-sm':      400,
+  'h-sm':             600,
+  'h-md':             768,
+  'h-tablet-lg':      800,
+);
+
+@mixin for-width($size, $size2: null) {
+  @each $name, $bp in $mqs {
+    $max: calc(#{em($bp)} - #{em(1)});
+    $min: em($bp);
+    @if $size == "-#{$name}" {
+      @media (max-width: $max) { @content; }
+    }
+    @if $size == "+#{$name}" {
+      @media (min-width: $min) { @content; }
+    }
+    @if $size2 == "#{$name}" {
+      @each $name, $bp in $mqs {
+        $min: em($bp);
+        @if $size == "#{$name}" {
+          @media (min-width: $min) and (max-width: $max)  { @content; }
+        }
+      }
+    }
+  }
+}
+
+/*
+._example {
+  @include for-width(-desktop) {
+    opacity: 0.5;
+  };
+}
+*/
+
+@mixin for-height($size, $size2: null) {
+  @each $name, $bp in $mqs {
+    $max: calc(#{em($bp)} - #{em(1)});
+    $min: em($bp);
+    @if $size == "-#{$name}" {
+      @media (max-height: $max) { @content; }
+    }
+    @if $size == "+#{$name}" {
+      @media (min-height: $min) { @content; }
+    }
+    @if $size2 == "#{$name}" {
+      @each $name, $bp in $mqs {
+        $min: em($bp);
+        @if $size == "#{$name}" {
+          @media (min-height: $min) and (max-height: $max)  { @content; }
+        }
+      }
+    }
+  }
+}
+
+/*
+._example {
+  @include for-height(-desktop) {
+    opacity: 0.5;
+  };
+}
+*/

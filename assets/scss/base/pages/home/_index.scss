@@ -1,0 +1,16 @@
+.v-front-page {
+  .bc-customers-say {
+    background-color: $primary-background-color;
+    padding-top: rem(30);
+  }
+}
+// Header
+@import "header";
+// Clients
+@import "clients";
+// Works
+@import "works";
+// About us
+@import "about";
+// Blog
+@import "blog";

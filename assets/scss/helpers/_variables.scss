@@ -1,0 +1,26 @@
+//---------------------------------------------fonts
+$font_path: "~static/fonts/";
+$font_base: sans-serif;
+$font_size_base: 16px;
+//---------------------------------------------fonts###
+
+//---------------------------------------------Imagws path
+$img_dir: '~assets/img/';
+//---------------------------------------------Imagws path###
+
+//---------------------------------------------colors
+$white: #ffffff;
+
+// Primary colors
+$primary: #0080FF;
+$content-color: #081236;
+$primary-background-color: #081236;
+$secondary-background-color: #D0F0F7;
+$hard-secondary-color: #42C4DE;
+
+$black: $content-color;
+
+$body_bg: #F7F7F7;
+$scroll_bar_color: transparent;
+$scroll_thumb_color: $content-color;
+//---------------------------------------------colors###

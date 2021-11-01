@@ -1,0 +1,89 @@
+.ps-blog {
+
+  &-sect {
+    position: relative;
+
+    padding-top: rem(127);
+    padding-bottom: rem(97);
+  }
+
+  &__title {
+    justify-content: flex-end;
+    color: $white;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  &__wrap {
+    position: relative;
+    z-index: 2;
+
+    &_top {
+      margin-bottom: rem(40);
+    }
+    &_bot {
+      padding-left: rem(163);
+
+      @include for-width(-tablet) {
+        padding-left: rem(50);
+      }
+
+      @include for-width(-mobile-lg) {
+        padding-left: rem(20);
+      }
+    }
+  }
+
+  &__slider {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: rem(20);
+
+    margin-bottom: rem(43);
+
+    @include for-width(-mobile-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &:after {
+      @include after-before-elements;
+
+      top: 0;
+      right: 0;
+
+      width: rem(311);
+      height: 100%;
+
+      background: linear-gradient(270deg, #081236 45.34%, rgba(8, 18, 54, 0.322421) 79.79%, rgba(8, 18, 54, 0) 100%);
+
+      @include for-width(-mobile-lg) {
+        width: rem(120);
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+
+    .ps-front-clients__arrow {
+      svg {
+        path {
+          fill: $white;
+        }
+      }
+      &:hover {
+        svg {
+          path {
+            fill: $primary;
+          }
+        }
+      }
+    }
+    .ps-front-clients__arrows {
+      margin-right: rem(48);
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.b-page-header {
+  position: relative;
+  z-index: 2;
+
+  &-sect {
+    position: relative;
+
+    padding: rem(100) 0 rem(144);
+
+    @include for-width(-tablet-md) {
+      padding-bottom: rem(80);
+    }
+
+    @include for-width(-mobile-lg) {
+      padding-top: rem(30);
+      overflow: hidden;
+    }
+  }
+
+  &__images {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    max-width: rem(1350);
+    height: 100%;
+
+    clip-path: polygon(0 0, 100% 0, 0 100%, 0% 100%);
+
+    @include for-width(-tablet-md) {
+      max-width: rem(700);
+    }
+
+    @include for-width(-mobile-lg) {
+      width: 125%;
+      max-width: 125%;
+      height: 35%;
+    }
+  }
+
+  &__wrap {
+    &_left {
+      max-width: rem(470);
+
+      @include for-width(-mobile-lg) {
+        margin-bottom: rem(70);
+        max-width: rem(300);
+      }
+    }
+    &_right {
+      @include for-width(-tablet-md) {
+        max-width: rem(400);
+        margin-left: auto;
+      }
+
+      @include for-width(-mobile-lg) {
+        max-width: 100%;
+      }
+    }
+  }
+}

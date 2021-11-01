@@ -1,0 +1,113 @@
+.ps-works {
+  position: relative;
+
+  &-sect {
+    padding-bottom: rem(124);
+
+    .ch-header-slider {
+      &__controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        max-width: rem(400);
+        width: 100%;
+
+        bottom: 0;
+        right: 0;
+
+        @include for-width(-tablet) {
+          max-width: rem(250);
+        }
+
+        @include for-width(-mobile-lg) {
+          bottom: rem(-60);
+          right: rem(20);
+          max-width: rem(250);
+        }
+
+        &-view {
+          span {
+            background-color: $primary;
+
+            &.active {
+              background-color: $primary-background-color;
+            }
+          }
+        }
+      }
+
+      &__counter {
+        color: $primary-background-color;
+        margin-right: 0;
+        margin-left: rem(16);
+      }
+    }
+  }
+
+  &__controls-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__slide {
+    display: none;
+    justify-content: space-between;
+
+    &.active {
+      display: flex;
+    }
+
+    @include for-width(-mobile-lg) {
+      flex-direction: column;
+    }
+
+    &-wrap {
+      &_ill {
+        width: rem(550);
+        height: auto;
+
+        img {
+          height: auto;
+        }
+
+        @include for-width(-tablet) {
+          max-width: rem(350);
+        }
+
+        @include for-width(-mobile-lg) {
+          margin-bottom: rem(30);
+          width: 100%;
+        }
+      }
+
+      &_content {
+        text-align: right;
+
+        max-width: rem(446);
+
+        margin-bottom: rem(50);
+
+        .b-title {
+          display: block;
+          margin-left: auto;
+
+          &--4 {
+            margin-top: rem(40);
+            margin-bottom: rem(18);
+          }
+        }
+      }
+    }
+
+    &-text {
+      @include for-width(-tablet) {
+        max-width: rem(250);
+      }
+
+      @include for-width(-mobile-lg) {
+        max-width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+---
+image: node:12.6.0
+
+pipelines:
+  # default:
+  custom:
+    production:
+      - step:
+        #caches:
+        #    - node
+          script:
+            - npm install yarn
+            - yarn install
+            - yarn build
+            - tar --exclude='.git' -czf /tmp/${BITBUCKET_BUILD_NUMBER}.tgz  ./.* 
+            - scp /tmp/${BITBUCKET_BUILD_NUMBER}.tgz front@${HOST}:~
+            - ssh front@${HOST} "mkdir -p builds/${BITBUCKET_BUILD_NUMBER}"
+            - ssh front@${HOST} "tar xzf ${BITBUCKET_BUILD_NUMBER}.tgz -C builds/${BITBUCKET_BUILD_NUMBER} && rm -f ${BITBUCKET_BUILD_NUMBER}.tgz"
+            - ssh front@${HOST} "cd builds; test -L current && unlink current && ln -s  ${BITBUCKET_BUILD_NUMBER} current || ln -s  ${BITBUCKET_BUILD_NUMBER} current"
+            - ssh front@${HOST} "source /usr/local/nvm/nvm.sh && cd builds/current && pm2 kill && pm2 start"
+            - ssh front@${HOST} "bash builds/current/clean.sh"

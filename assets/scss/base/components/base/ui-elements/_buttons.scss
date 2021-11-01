@@ -1,0 +1,97 @@
+.b-button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  min-width: rem(123);
+  height: rem(42);
+
+  margin: 0 rem(14);
+  padding: 0 rem(14);
+
+  @extend %body-2-semibold;
+
+  &:hover {
+    &:after {
+      background-color: transparent;
+      border-color: $primary;
+    }
+  }
+
+  &.--border {
+    &:after {
+      background-color: transparent;
+
+      border-color: $primary;
+    }
+
+    &:hover {
+      &:after {
+        background-color: $primary;
+      }
+    }
+  }
+
+  &.--primary-background {
+    &:after {
+      background-color: $primary-background-color;
+      border-color: $primary-background-color;
+    }
+
+    &:hover {
+      &:after {
+        background-color: transparent;
+        border-color: $primary-background-color;
+      }
+    }
+  }
+
+  &:after {
+    @include after-before-elements;
+
+    top: 0;
+    left: 50%;
+
+    z-index: 1;
+
+    width: 120%;
+    height: 100%;
+
+    transform: skewY(
+        -20deg
+    ) rotate(20deg) translateX(-53%);
+
+    border: rem(1) solid transparent;
+    background-color: $primary;
+
+    transition: background-color .3s ease;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
+
+  &.--primary-font-color {
+    color: $primary;
+
+    &.--border {
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &.--white {
+    color: $white;
+
+    &.--primary-hover {
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}

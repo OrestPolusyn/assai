@@ -1,0 +1,59 @@
+.bc-content-card-wrap {
+  max-width: rem(314);
+
+  background:linear-gradient(-40deg, transparent #{rem(25)}, $white 0);
+
+  &.--image-card {
+    padding: rem(16);
+
+    @include for-width(-mobile-lg) {
+      padding: rem(8);
+    }
+  }
+
+  &.--text-card {
+    max-width: 100%;
+    padding: rem(40);
+  }
+}
+
+// Base card with image
+.cb-image-card {
+
+  &__date {
+    @extend %body-5;
+    text-align: right;
+  }
+
+  &__text, &__link {
+    @extend %body-4;
+  }
+
+  &__text {
+    margin-top: rem(14);
+
+    height: rem(80);
+    max-height: rem(80);
+
+    @include for-width(-mobile-lg) {
+      font-size: rem(12);
+    }
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+}
+
+.cb-text-card {
+  &__subtitle {
+    font-size: rem(12);
+    margin: rem(10) 0 rem(20);
+  }
+
+  a {
+    &:hover {
+      color: $primary;
+    }
+  }
+}

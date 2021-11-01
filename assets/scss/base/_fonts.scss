@@ -1,0 +1,94 @@
+// ================ Montserrat-Bold ================
+@include font_face(Montserrat-Bold,Montserrat-Bold);
+
+%bold {
+  font-family: 'Montserrat-Bold', sans-serif;
+}
+
+// ################ Montserrat-Bold ################
+
+// ================ Montserrat-Regular ================
+@include font_face(Montserrat-Regular, Montserrat-Regular);
+
+%regular {
+  font-family: 'Montserrat-Regular', sans-serif;
+}
+
+// ################ SansSerif-Book ################
+
+// ================ Montserrat-SemiBold ================
+@include font_face(Montserrat-SemiBold, Montserrat-SemiBold);
+
+%semibold {
+  font-family: 'Montserrat-SemiBold', sans-serif;
+}
+
+// ################ SansSerif-Book ################
+
+// ====================== Font sizes =======================
+%ttu {
+  text-transform: uppercase;
+}
+
+// Font styles
+
+%h1-title {
+  @extend %bold;
+  @include font_sizes(64, 64);
+
+  @include for-width(-tablet) {
+    @include font_sizes(44, 44);
+  }
+  @include for-width(-mobile-lg) {
+    @include font_sizes(34, 34);
+  }
+}
+
+%h2-title {
+  @extend %bold;
+  @include font_sizes(36, 44);
+
+  @include for-width(-mobile-lg) {
+    @include font_sizes(24, 24);
+  }
+}
+
+%h3-title {
+  @extend %bold;
+  @include font_sizes(28, 34);
+}
+
+%h4-title {
+  @extend %bold;
+  @include font_sizes(24, 32);
+}
+
+%body-1 {
+  @extend %regular;
+  @include font_sizes(18, 24);
+}
+
+%body-2 {
+  @extend %regular;
+  @include font_sizes(16, 22);
+}
+
+%body-2-semibold {
+  @extend %semibold;
+  @include font_sizes(16, 22);
+}
+
+%body-3 {
+  @extend %regular;
+  @include font_sizes(16, 18);
+}
+
+%body-4 {
+  @extend %regular;
+  @include font_sizes(14, 18);
+}
+
+%body-5 {
+  @extend %regular;
+  @include font_sizes(10, 14);
+}

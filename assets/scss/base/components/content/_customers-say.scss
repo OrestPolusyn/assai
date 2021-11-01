@@ -1,0 +1,127 @@
+.bc-customers-say {
+  color: $white;
+  padding-bottom: rem(63);
+
+  p {
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: rem(40);
+
+    @include for-width(-mobile-lg) {
+      flex-direction: column;
+    }
+    .asd {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include for-width(-mobile-lg) {
+        margin-top: rem(40);
+      }
+    }
+  }
+
+  &__capteria {
+    margin-left: rem(-35);
+    margin-right: rem(50);
+
+    svg {
+      width: inherit;
+      height: auto;
+    }
+
+    @include for-width(-desktop-sm) {
+      width: rem(200);
+    }
+
+    @include for-width(-tablet) {
+      margin-left: 0;
+      margin-right: rem(20);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    svg {
+
+      &:first-child {
+        margin-right: rem(10);
+      }
+      path {
+        @include base-transition(fill);
+        cursor: pointer;
+
+        &:hover {
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  &__main {
+    display: none;
+    justify-content: space-between;
+
+    @include for-width(-tablet-md) {
+      flex-direction: column;
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  &__text {
+    p {
+      @extend %body-2;
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__wrap {
+    &_left {
+      max-width: rem(554);
+    }
+    &_right {
+      max-width: rem(484);
+      background-color: $white;
+      color: $black;
+
+      clip-path: polygon(0 0, 100% 0, 100% 81%, 85% 100%, 0 100%, 0% 50%);
+
+      @include for-width(-tablet-md) {
+        margin-top: rem(30);
+
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__card {
+
+    padding: rem(30) rem(26);
+
+    &-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      @include for-width(-mobile-lg) {
+        flex-direction: column;
+      }
+
+      margin-bottom: rem(16);
+    }
+  }
+}

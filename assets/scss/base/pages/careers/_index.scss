@@ -93,6 +93,16 @@
       margin-bottom: rem(40);
     }
   }
+  .v-contact__form-wrap{
+    .b-input,.b-select{
+      margin: 0 !important;
+    }
+  }
+  &__requirements{
+    p{
+      margin-bottom: 1.25rem;
+    }
+  }
 }
 
 .v-contact {

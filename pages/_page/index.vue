@@ -24,14 +24,18 @@
         <div class="v-industries-services" v-if="content.subpages && content.subpages.length > 0">
           <industries-item v-for="feature in content.subpages"
                            :icon="feature.icon"
+                           :page-type="feature.pageType"
                            :title="feature.title"
                            :content="feature.description"
                            :link-slug="feature.slug"
                            :key="feature.title"/>
         </div>
       </b-container>
+      <ps-blog :has-beautify="false" v-if="blogPosts.length > 0" :posts="blogPosts"
+               :cta-text="content.blog.ctaTitle" :title="content.blog.title"/>
+      <bc-customers-say :hasBeautify="true" :reviews="content.feedback"/>
     </section>
-    <ps-blog/>
+
   </div>
 </template>
 
@@ -43,13 +47,17 @@ import IndustriesItem from "../../components/pages/industries/industries-item";
 import PsBlog from "../../components/pages/home/ps-blog";
 import {mapState} from "vuex";
 import objectValue from "../../utils/objectValue";
+import BcCustomersSay from "../../components/base/content/bc-customers-say";
 export default {
   name: "index",
-  components: {PsBlog, IndustriesItem, BContainer, BTitle, BPageHeader},
+  components: {BcCustomersSay, PsBlog, IndustriesItem, BContainer, BTitle, BPageHeader},
   async middleware({store: { dispatch }, route: { params: { page } } }) {
     await dispatch('pages/loadPageData', { pageSlug: page });
   },
   computed: {
+    blogPosts() {
+      return this.content.blog?.articles ? this.content.blog.articles : [];
+    },
     ...mapState({
       content(state) {
         const locale = this.$i18n.locale;

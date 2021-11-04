@@ -208,12 +208,8 @@
 
 
   &__item {
-    display: none;
+    //display: none;
     margin-right: rem(40);
-
-    &.active {
-      display: block;
-    }
 
     @include for-width(-mobile-lg) {
       width: 100%;
@@ -225,6 +221,11 @@
 
     @include for-width(-mobile-lg) {
       margin-right: 0;
+    }
+    .cm-dropdown-menu__main-link{
+      display: flex;
+      align-items: center;
+      text-transform: capitalize;
     }
 
     &:nth-child(2n + 1) {

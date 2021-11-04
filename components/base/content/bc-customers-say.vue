@@ -1,5 +1,5 @@
 <template>
-  <section class="bc-customers-say">
+  <section class="bc-customers-say" :class="{'dark': hasBeautify}">
     <b-container>
       <div class="bc-customers-say__head">
         <b-title level="2" class-level="2">
@@ -74,6 +74,10 @@ export default {
       type: Array,
       default: () => ([])
     },
+    hasBeautify: {
+      type: Boolean,
+      default: false,
+    }
   },
   data() {
     return {

@@ -66,7 +66,6 @@ export default {
       const mainStorePage = getters.getField(mainPage);
       const mainPageChecker = mainStorePage ? mainPage : 'pages';
       const locale = this.$i18n.locale;
-
       const canMakeQuery = casheState({
         slug: pageSlug,
         getters,

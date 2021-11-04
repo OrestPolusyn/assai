@@ -13,16 +13,20 @@
           </button>
           <nav class="cm-navigation__menu" :class="{ active: visibleMobileMenu }">
             <div class="cm-dropdown-menu">
-              <div class="cm-dropdown-menu__item" :class="{ active: nav === 'solutions' }"
-                   v-for="nav in Object.keys(navigation)" :key="nav">
+
+              <div class="cm-dropdown-menu__item" v-for="nav in Object.keys(navigation)" :key="nav">
                 <button class="cm-dropdown-menu__main-link"
+                        v-if="nav === 'solutions'"
                         @click-away="setActiveItem(nav)" @click="setActiveItem(nav)">
                   {{ nav[0].toUpperCase() + nav.slice(1) }}
                   <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 8.53135e-08L8.34742e-08 0L3.52059 7L7 8.53135e-08Z" fill="#F7F7F7"/>
                   </svg>
                 </button>
-                <div class="cm-dropdown-menu__nested" @click="setActiveItem(nav)" :class="{ visible: nav === activeMenu }">
+                <nuxt-link class="cm-dropdown-menu__main-link" v-else :to="'/'+nav">
+                  {{ nav }}
+                </nuxt-link>
+                <div class="cm-dropdown-menu__nested" @click="setActiveItem(nav)" v-if="nav === 'solutions'" :class="{ visible: nav === activeMenu }">
                   <div class="cm-dropdown-menu__nested --bg"></div>
                   <div class="cm-dropdown-menu__nested-item-wrap" :class="`--nested-item-${index}`" v-if="nav === 'solutions'" v-for="(menu, index) in navigation[nav]" :key="menu.title + '_' + index">
                     <div class="cm-dropdown-menu__nested-item">
@@ -42,6 +46,16 @@
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="cm-dropdown-menu__item">
+                <nuxt-link class="cm-dropdown-menu__main-link" to="/blog">
+                  Blog
+                </nuxt-link>
+              </div>
+              <div class="cm-dropdown-menu__item">
+                <nuxt-link class="cm-dropdown-menu__main-link" to="/careers">
+                  Careers
+                </nuxt-link>
               </div>
             </div>
           </nav>

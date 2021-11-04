@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/solutions/${linkSlug}`" class="c-industries-item">
+  <nuxt-link :to="`/${pageType}/${linkSlug}`" class="c-industries-item">
     <div class="c-industries-item__icon" :class="`--${title.toLowerCase()}`">
       <img :src="icon" :alt="title">
     </div>
@@ -27,6 +27,10 @@ export default {
     title: {
       type: String,
       default: 'Energy'
+    },
+    pageType: {
+      type: String,
+      default: 'solutions'
     },
     content: {
       type: String,

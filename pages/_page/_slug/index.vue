@@ -214,9 +214,12 @@ export default {
         return slides;
       }
 
+      // return [
+      //   ...slides,
+      //   ...[...this.content.otherSubpages].splice(0, this.perPage - slides.length),
+      // ];
       return [
         ...slides,
-        ...[...this.content.otherSubpages].splice(0, this.perPage - slides.length),
       ];
     },
     isSectionSlider() {

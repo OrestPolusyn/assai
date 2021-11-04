@@ -1,5 +1,5 @@
 export default Object.freeze({
-  baseURL: 'http://api.nextpage.pp.ua/api',
+  baseURL: 'https://api.nextpage.pp.ua/api',
   getQueryString({ page = null, sort = null }) {
     let queryString = '';
     if(sort) {

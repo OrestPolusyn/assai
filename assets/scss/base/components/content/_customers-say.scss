@@ -124,4 +124,9 @@
       margin-bottom: rem(16);
     }
   }
+
+  &.dark{
+    background-color: $primary-background-color;
+    padding-top: rem(30);
+  }
 }

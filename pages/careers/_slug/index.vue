@@ -8,7 +8,7 @@
         <b-title class-level="1" level="1"> Find Your Team </b-title>
         <div class="v-career-description">
           <div class="v-career-description__wrap">
-            <h2 class="position-name">Assistant Financial Controller</h2>
+            <h2 class="position-name">{{content.name}}</h2>
             <div
               class="
                 v-career-description__content
@@ -16,62 +16,11 @@
                 v-article-content
               "
             >
-              <p>
-                Assai is the global leader in Document Management Solution for
-                complex engineering and projects witha unique focus
-                onpro-actively ‘controlling’ the document revision
-              </p>
+              <p>{{content.description}}</p>
               <h3>Qualifications</h3>
-              <ul>
-                <li>Minimum 5 years related industry experience</li>
-                <li>University degree in Finance</li>
-                <li>
-                  Senior professional with strong experience on FP&A, finance
-                  and Accounting, able to work in an international and
-                  multicultural environment
-                </li>
-                <li>
-                  Excellent in MS Office Tools (Excel, Word, Access and Power
-                  point)/ Knowledge of SAP and Hyperion (HFM and Essbase)
-                </li>
-                <li>Strong English required</li>
-                <li>
-                  Demonstrated knowledge, skills and experience in supporting
-                  the business
-                </li>
-                <li>Ability to identify & resolve business problems</li>
-                <li>
-                  Team player with ability to work in a cross functional
-                  environment
-                </li>
-                <li>
-                  Highly interested in process improvements & bringing added
-                  value to the business
-                </li>
-                <li>Ability to adapt & adjust to a changing environment</li>
-                <li>
-                  Ability to analyze data as well as present a clear picture
-                  (summary)
-                </li>
-                <li>Any other additional language would be an asset</li>
-              </ul>
+              <div class="v-career-description__requirements" v-html="content.requirements"></div>
               <h3>We offer</h3>
-              <ul>
-                <li>
-                  A culture that fosters inclusion, diversity and innovation
-                </li>
-                <li>
-                  Market specific training and ongoing personal development
-                </li>
-                <li>Career growth opportunities</li>
-                <li>
-                  Experienced leaders to support your professional development
-                </li>
-                <li>International work environment</li>
-                <li>
-                  If this is your dream role, then we'd love to hear from you.
-                </li>
-              </ul>
+              <div v-html="content.offers"></div>
             </div>
             <a href="#" download class="b-button --border --primary-font-color">
               <span>Download full version</span>
@@ -97,18 +46,20 @@
               </div>
               <div class="v-contact__form-wrap">
                 <b-input
-                  label="Company Email*"
+                  label="Email*"
                   field_name="email"
                   v-model="formData.email"
                   emit_local
                   :placeholder="''"
                 />
+              </div>
+              <div class="v-contact__form-wrap">
                 <b-input
                   label="Phone*"
                   v-model="formData.phoneNumber"
                   field_name="phone"
                   emit_local
-                  :placeholder="''"
+                  :placeholder="'093 000 00 00'"
                 />
               </div>
               <div class="v-contact__form-wrap">
@@ -116,11 +67,6 @@
                   label="Country*"
                   :options="countriesArray"
                   v-model="formData.country"
-                />
-                <b-select
-                  label="Enquiry type*"
-                  :options="['Vacancies']"
-                  v-model="formData.type"
                 />
               </div>
               <div class="v-contact__form-wrap">
@@ -189,7 +135,7 @@ export default {
         phoneNumber: null,
         message: null,
         country: null,
-        type: null,
+        vacancy_id: null,
       },
       showOverlay: false,
       overlayName: null,
@@ -217,9 +163,10 @@ export default {
       const dataObject = {
         ...this.formData,
       };
+      dataObject.vacancy_id =  this.content.id;
 
       try {
-        const query = await this.$http.post(httpConfig.postContactForm(), {
+        const query = await this.$http.post(httpConfig.postVacancy(), {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
@@ -228,7 +175,6 @@ export default {
 
         if (query.body?.error) return;
 
-        console.log(e.response);
         Object.keys(this.formData).forEach((key) => {
           this.formData[key] = null;
         });

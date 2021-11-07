@@ -1,6 +1,7 @@
 .v-contact {
   position: relative;
   z-index: 2;
+
   &-page {
     position: relative;
 
@@ -24,6 +25,14 @@
 
       @include for-width(-desktop-sm) {
         clip-path: polygon(15% 0, 100% 0, 100% 95%, 85% 100%, 0 100%, 0 5%);
+      }
+    }
+
+    &--thanks {
+      padding-bottom: rem(430);
+
+      @include for-width(-small-md) {
+       padding-bottom: rem(360);
       }
     }
   }
@@ -57,7 +66,8 @@
 
       margin-bottom: rem(20);
 
-      .b-input, .b-select {
+      .b-input,
+      .b-select {
         &:first-child {
           margin-right: rem(10);
 
@@ -65,6 +75,7 @@
             margin-right: 0;
           }
         }
+
         &:last-child {
           margin-left: rem(10);
 
@@ -81,6 +92,7 @@
     &_left {
       margin-right: rem(20);
     }
+
     &_right {
       margin-left: rem(20);
       padding: rem(40);
@@ -99,6 +111,50 @@
   &__text {
     margin-top: rem(40);
     color: #2E4A65;
+  }
+
+  &__thanks {
+    max-width: 700px;
+    width: 100%;
+    text-transform: capitalize;
+    display: block;
+    margin-bottom: 80px;
+
+    span {
+      display: inline-block;
+    }
+  }
+
+  &__thanks-text {
+    margin-bottom: 30px;
+
+    a {
+      text-decoration: underline;
+      color: #0080ff;
+    }
+  }
+
+  &__thanks-img {
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+    max-width: 750px;
+    width: 100%;
+    right: 80px;
+
+    @include for-width(-tablet) {
+      max-width: 500px;
+      top: 100px;
+    }
+
+    @include for-width(-tablet-md) {
+      max-width: 500px;
+      top: auto;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+    }
   }
 }
 
@@ -142,9 +198,11 @@
       max-width: rem(350);
     }
   }
+
   &__title {
     text-transform: uppercase;
   }
+
   &__text {
     margin: rem(40) 0;
     color: rgba($white, .6)

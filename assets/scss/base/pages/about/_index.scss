@@ -1,12 +1,176 @@
 .v-about {
   position: relative;
   z-index: 2;
-  &-page {
+
+  .b-title {
+    display: block;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+
+    span {
+      color: #0080ff;
+    }
+  }
+
+  &__slogan {
+    @extend %h4-title;
+    display: inline-block;
+    max-width: 540px;
+    width: 100%;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 75px;
+    }
+
+    figure {
+      margin-right: 10px;
+    }
+
+    &--reverse {
+      flex-direction: row-reverse;
+
+      figure {
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+
+    @include for-width(-tablet) {
+      display: block;
+    }
+  }
+
+  &__box {
+    width: 100%;
+    padding-top: 25px;
+  }
+
+  &__img {
+    max-width: 580px;
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__culture {
+    margin-bottom: 80px;
+
+    .v-about__list {
+      display: flex;
+
+      @include for-width(-tablet) {
+        display: block;
+      }
+    }
+
+    .v-about__title.b-title--2 {
+      margin-bottom: 98px;
+
+      @include for-width(-tablet) {
+        margin-bottom: 5rem;
+      }
+    }
+
+    &.--beautify-block {
+      &:before {
+        background-color: #081236;
+      }
+    }
+  }
+
+  &__list-item {
+    max-width: 350px;
+    width: 100%;
+    position: relative;
+    padding: 6rem 2.3rem;
+    background: linear-gradient(-40deg, transparent 1.5625rem, #ffffff 0);
+
+    &:not(:last-child) {
+      margin-right: rem(40);
+
+      @include for-width(-tablet) {
+        margin-right: 0;
+        margin-bottom: 4rem;
+      }
+    }
+
+    & .v-about__title {
+      margin-bottom: 15px;
+      position: initial;
+    }
+
+    @include for-width(-tablet) {
+      max-width: 100%;
+      padding: 4rem 1.5rem;
+    }
+  }
+
+  &__title-link {
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: rem(57);
+    height: rem(60);
+
+    margin-top: rem(-30);
+
+    background-color: #C3CFEC;
+    transform: skewY(-25deg);
+
+    img {
+      max-width: rem(28);
+      height: auto;
+      transform: skewY(25deg);
+    }
+  }
+
+  .b-title--2 {
+    text-transform: uppercase;
+  }
+
+  &__location {
+    .b-title--2 {
+      color: $white;
+    }
+  }
+
+  &__inner {
     position: relative;
 
     padding: rem(120) 0 rem(120);
+    padding-bottom: 0;
+    margin-bottom: 74px;
 
     background-color: $primary-background-color;
+
+    @include for-width(-tablet) {
+      padding: rem(50) 0;
+    }
 
     &:after {
       @include after-before-elements;
@@ -15,17 +179,100 @@
       left: 0;
 
       width: 100%;
-      height: 100%;
+      height: 143%;
 
-      background-color: $white;
-      z-index: 1;
+      background-color: #f7f7f7;
+      z-index: 0;
+      background-image: url('/img/front/beatify-els.svg');
+      background-repeat: no-repeat;
+      background-position: right 53%;
+      clip-path: polygon(25% 0%, 100% 0, 100% 50%, 100% 57%, 0 100%, 0 10%);
 
-      clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
-
-      @include for-width(-desktop-sm) {
-        clip-path: polygon(15% 0, 100% 0, 100% 95%, 85% 100%, 0 100%, 0 5%);
+      @include for-width(-tablet) {
+        height: 120%;
+        clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 85%, 0 100%, 0 2%);
+        background-image: none;
       }
     }
+  }
+
+  &__location {
+    margin-bottom: 80px;
+
+    .v-about__img {
+      max-width: 50%;
+      margin-right: 40px;
+
+      @include for-width(-tablet) {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &__tabs {
+    list-style: circle;
+    background: linear-gradient(-40deg, transparent 1.5625rem, #ffffff 0);
+    padding: rem(40) rem(30);
+    width: 50%;
+
+    @include for-width(-tablet) {
+      width: 100%;
+    }
+  }
+
+  &__tab {
+    list-style-type: disc;
+    margin-bottom: 25px;
+    @extend %body-1;
+    cursor: pointer;
+    width: fit-content;
+
+    &--active {
+
+      address {
+        height: 100%;
+        opacity: 1;
+        visibility: visible;
+        padding-top: 25px;
+      }
+
+      .v-about__tab-text {
+        &:before {
+          transform: translateY(50%) rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__tab-text {
+    width: fit-content;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      background-image: url('/img/ind-icons/arrow-down.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      width: 15px;
+      height: 10px;
+      right: -24px;
+      top: 0;
+      transform: translateY(70%) rotate(0);
+      transition: transform 0.3s;
+    }
+  }
+
+  &__address {
+    max-width: 250px;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    font-size: 12px;
   }
 
   &__wrapper {
@@ -57,7 +304,8 @@
 
       margin-bottom: rem(20);
 
-      .b-input, .b-select {
+      .b-input,
+      .b-select {
         &:first-child {
           margin-right: rem(10);
 
@@ -65,6 +313,7 @@
             margin-right: 0;
           }
         }
+
         &:last-child {
           margin-left: rem(10);
 
@@ -81,6 +330,7 @@
     &_left {
       margin-right: rem(20);
     }
+
     &_right {
       margin-left: rem(20);
       padding: rem(40);
@@ -96,10 +346,6 @@
     }
   }
 
-  &__text {
-    margin-top: rem(40);
-    color: #2E4A65;
-  }
 }
 
 // .v-contact-overlay {

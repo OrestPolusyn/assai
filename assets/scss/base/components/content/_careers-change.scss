@@ -1,0 +1,179 @@
+.b-careers {
+  color: $white;
+  padding-bottom: rem(63);
+
+  p {
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__btn {
+    margin-left: auto;
+    margin-right: 50px;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: rem(40);
+
+    @include for-width(-small-md) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .b-title.b-title--2 {
+      margin-bottom: 0;
+
+      @include for-width(-small-md) {
+        margin-bottom: 30px;
+      }
+    }
+
+    .asd {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include for-width(-mobile-lg) {
+        margin-top: rem(40);
+      }
+    }
+  }
+
+  &__head-box {
+    display: flex;
+
+    @include for-width(-desktop-sm) {
+      margin-left: auto;
+    }
+  }
+
+  &__capteria {
+    margin-left: rem(-35);
+    margin-right: rem(50);
+
+    svg {
+      width: inherit;
+      height: auto;
+    }
+
+    @include for-width(-desktop-sm) {
+      width: rem(200);
+    }
+
+    @include for-width(-tablet) {
+      margin-left: 0;
+      margin-right: rem(20);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    svg {
+
+      &:first-child {
+        margin-right: rem(10);
+      }
+
+      path {
+        @include base-transition(fill);
+        cursor: pointer;
+
+        &:hover {
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+
+    @include for-width(-tablet) {
+      flex-direction: column;
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  &__text {
+    p {
+      @extend %body-2;
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__wrap {
+    &_left {
+      max-width: rem(554);
+
+      @include for-width(-tablet) {
+        max-width: 100%;
+      }
+    }
+
+    &_right {
+      max-width: rem(484);
+      background-color: $white;
+      color: $black;
+
+      clip-path: polygon(0 0, 100% 0, 100% 81%, 85% 100%, 0 100%, 0% 50%);
+
+      clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
+
+      @include for-width(-tablet) {
+        margin-top: rem(30);
+
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__card {
+    padding: rem(30) rem(26);
+
+    span {
+      display: inline-block;
+      @extend %body-4;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__card-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    @include for-width(-mobile-lg) {
+      flex-direction: column;
+    }
+
+    margin-bottom: rem(16);
+
+  }
+
+  &.dark {
+    background-color: $primary-background-color;
+    padding-top: rem(30);
+  }
+}
+
+.v-about {
+  .b-careers__card-head {
+    margin-bottom: 10px;
+
+    .b-title {
+      margin-bottom: 0;
+    }
+  }
+}
